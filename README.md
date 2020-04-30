@@ -1,13 +1,13 @@
-
 ## userテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false|
-|email|string|null: false|
-|password|string|null: false|
+|nickname|string|null: false, unique: true|
+|email|string|null: false, unique: true|
+|password|string|null: false, unique: true|
 
-### Association
+## Association
+- has_many :groups
 - has_many :groups, through: :group_users
 - has many :messages
 
@@ -16,9 +16,10 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|groupname|string|null: false|
+|groupname|string|null: false, unique: true|
 
 ### Association
+- has_many :users
 - has many :users, through: :group_users
 
 
