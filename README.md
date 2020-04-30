@@ -2,7 +2,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false, unique: true|
+|nickname|string|null: false, unique: true、add＿index|
 |email|string|null: false, unique: true|
 |password|string|null: false, unique: true|
 
@@ -16,7 +16,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|groupname|string|null: false, unique: true|
+|groupname|string|null: false, unique: true, add_index|
 
 ### Association
 - has_many :users
@@ -27,8 +27,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|body|text|nul|l: false|
-|image|string|null: false|
+|body|text||
+|image|string||
 |user_id|reference|null: false, foreign_key: true|
 
 ### Association
