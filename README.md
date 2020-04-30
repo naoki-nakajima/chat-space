@@ -7,7 +7,6 @@
 |password|string|null: false, unique: true|
 
 ## Association
-- has_many :groups
 - has_many :groups, through: :group_users
 - has many :messages
 
@@ -16,11 +15,11 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|groupname|string|null: false, unique: true, add_index|
+|name|string|null: false, unique: true, add_index|
 
 ### Association
-- has_many :users
 - has many :users, through: :group_users
+- has_many messages
 
 
 ## messageテーブル
@@ -33,6 +32,7 @@
 
 ### Association
 - belongs_to :user
+- belongs_to :gruop
  
  
  ## groups_usersテーブル
