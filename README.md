@@ -2,7 +2,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false, unique: true、add＿index|
+|nickname|string|null: false, unique: true, add＿index|
 |email|string|null: false, unique: true|
 |password|string|null: false, unique: true|
 
