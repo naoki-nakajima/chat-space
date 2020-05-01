@@ -2,7 +2,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false, unique: true, add＿index|
+|nickname|string|null: false, unique: true, index: true|
 |email|string|null: false, unique: true|
 |password|string|null: false, unique: true|
 
@@ -16,7 +16,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, unique: true, add_index|
+|name|string|null: false, unique: true, index: true|
 
 ### Association
 - has_many :group_users
@@ -30,8 +30,8 @@
 |------|----|-------|
 |body|text||
 |image|string||
-|user_id|reference|null: false, foreign_key: true|
-|group_id|reference|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :gruop
@@ -41,8 +41,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|reference|null: false, foreign_key: true|
-|group_id|reference|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
