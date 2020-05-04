@@ -1,1 +1,19 @@
-<サイドバー>
+.side-bar
+  .side-bar__side-header
+    .side-bar__side-header__top-items
+      .side-bar__side-header__top-items__name naoki
+      %ul.side-bar__side-header__top-items__icon
+        %li.side-bar__side-header__top-items__icon__btn
+          = link_to "#" do
+            = icon('far', 'edit', class: 'btn-edit')
+        %li.side-bar__side-header__top-items__icon__btn
+          = link_to "#" do
+            = icon('far', 'cog', class: 'btn-cog')
+  
+  .side-bar__side-group
+    .side-bar__side-group__list
+      .side-bar__side-group__list__name techcamp
+      .side-bar__side-group__list__message まだメッセージがありません
+      
+      .side-bar__side-group__list__name techcamp
+      .side-bar__side-group__list__message まだメッセージがありません
