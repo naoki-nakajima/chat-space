@@ -1,5 +1,3 @@
-$text-color: #ffffff;
-
 .side-bar {
   background-color: #253141;
   height: 100vh;
@@ -19,7 +17,7 @@ $text-color: #ffffff;
       justify-content: space-between;
 
       &__name { 
-        color: #ffffff;
+        color: $basic-color;
         line-height: 20px;
         font-weight: bold;
       }
@@ -39,7 +37,7 @@ $text-color: #ffffff;
         }
         li {
           a {
-            color: $text-color;
+            color: $basic-color;
           }
         }
       }
@@ -52,14 +50,14 @@ $text-color: #ffffff;
 
     &__list {
       &__name {
-        color: $text-color;
+        color: $basic-color;
         font-size: 15px;
         font-weight: bold;
         margin: 0px 20px 5px;
       }
   
         &__message {
-        color: $text-color;
+        color: $basic-color;
         font-size: 11px;
         font-weight: bold;
         margin:0 20px 40px;
