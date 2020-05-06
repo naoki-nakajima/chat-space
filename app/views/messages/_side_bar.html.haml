@@ -1,13 +1,14 @@
 .side-bar
   .side-bar__side-header
     .side-bar__side-header__top-items
-      .side-bar__side-header__top-items__name naoki
+      .side-bar__side-header__top-items__name
+        = current_user.name
       %ul.side-bar__side-header__top-items__icon
         %li.side-bar__side-header__top-items__icon__btn
           = link_to "#" do
             = icon('far', 'edit', class: 'btn-edit')
         %li.side-bar__side-header__top-items__icon__btn
-          = link_to "#" do
+          = link_to edit_user_path(current_user) do
             = icon('far', 'cog', class: 'btn-cog')
   
   .side-bar__side-group
