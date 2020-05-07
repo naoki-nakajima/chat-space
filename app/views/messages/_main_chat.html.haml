@@ -17,20 +17,14 @@
     .chat-main__message-list__text
       おはよう！
 
-    .chat-main__message-list__box
-      .chat-main__message-list__box__name
-        naoki 
-      .chat-main__message-list__box__date
-        2019/11/20(Wed) 17:43:01
-    .chat-main__message-list__text
-      おはよう！
-
 
   .chat-main__message-form
-    %form.chat-main__message-form__box
-      %input{type: "text", class: "input-box__text", placeholder: "type a message"}
-      %label{class: "input-box__image"}
-        = icon('fas', 'image')
-        %input{type: "file", class: "input-box__image__file"}
-      
-    %input{type: "submit", class: "submit-btn"}
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+      .input-box__image
+        = f.label :image, class: 'input-box__image__file' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
+  
+
