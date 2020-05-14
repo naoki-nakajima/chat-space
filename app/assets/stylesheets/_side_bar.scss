@@ -47,9 +47,11 @@
   &__side-group {
     background-color: #2f3e51;
     height: calc(100vh - 100px);
-
+    overflow: scroll;
     &__list {
-      text-decoration: none;
+      a {
+        text-decoration: none;
+      }
       &__name {
         color: $basic-color;
         font-size: 15px;
@@ -66,4 +68,3 @@
     } 
   }
 }
-  
