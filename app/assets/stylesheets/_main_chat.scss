@@ -48,21 +48,28 @@
       display: flex;
       padding-top: 35px;
       margin-left: 40px;
-      &__a__name { 
+
+      &__name { 
         color: #333333;
         font-size:16px;
         margin-right: 10px;
       }
-      &__a__date {
+      &__date {
         color: #999999;
         font-size: 12px;
       }
     }
 
     &__a__text {
-      color: #434a54;
-      font-size: 14px;
       margin: 12px 0 0 40px;
+      &__content {
+        color: #434a54;
+        font-size: 14px;
+      }
+    }
+    &__a__text__image {
+      height: 200px;
+      width: 200px;
     }
   }
   
@@ -102,7 +109,6 @@
       &__image__file {
         display: none;
       }
-     }
     }
 
     .submit-btn {
@@ -113,7 +119,7 @@
       margin-left: 15px;
       background-color: $link-color;
       color: $basic-color;
-    }
+     }
+   }
   }
 }
-  
