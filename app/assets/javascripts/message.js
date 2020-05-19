@@ -2,9 +2,9 @@ $(function(){
   function buildHTML(message){
     if (message.image) {
       var html = 
-        `<div class="chat-main__message-list__a">
+        `<div class="chat-main__message-list__a" data-message-id=${message.id}>
           <div class="chat-main__message-list__a__box">
-            <div class="chat-main__message-list_a___box__name">
+            <div class="chat-main__message-list__a__box__name">
               ${message.user_name}
             </div>
             <div class="chat-main__message-list__a__box__date">
@@ -15,15 +15,15 @@ $(function(){
             <p class="chat-main__message-list__a__text__content">
               ${message.content}
             </p>
+            <img class="chat-main__message-list__a__text__image" src= ${message.image}>
           </div>
-          <img src= ${message.image}>
         </div>`
       return html;
     } else {
       var html =
-        `<div class="chat-main__message-list__a">
+        `<div class="chat-main__message-list__a" data-message-id=${message.id}>
           <div class="chat-main__message-list__a__box">
-            <div class="chat-main__message-list_a___box__name">
+            <div class="chat-main__message-list__a__box__name">
               ${message.user_name}
             </div>
             <div class="chat-main__message-list__a__box__date">
@@ -63,4 +63,30 @@ $(function(){
       $('.submit-btn').prop('disabled', false);
     })
   })
+  
+  var reloadMessages = function() {
+    var last_message_id = $('.chat-main__message-list__a:last').data("message-id");
+    $.ajax({
+      url: "api/messages",
+      type: 'GET',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      if (messages.length !== 0) {
+        var insertHTML = '';
+        $.each(messages, function(i, message) {
+          insertHTML += buildHTML(message)
+        });
+        $('.chat-main__message-list').append(insertHTML);
+        $('.chat-main__message-list').animate({ scrollTop: $('.chat-main__message-list')[0].scrollHeight});
+      }
+    })
+    .fail(function() {
+      alert('error');
+    });
+  };
+  if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+    setInterval(reloadMessages, 7000);
+  }
 });
